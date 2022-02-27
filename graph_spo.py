@@ -1,3 +1,7 @@
+"""
+Microsoft Graph API SharePoint Doc
+https://docs.microsoft.com/ja-jp/graph/api/resources/sharepoint?view=graph-rest-1.0
+"""
 import requests, json
 
 
