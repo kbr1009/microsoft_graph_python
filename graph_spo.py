@@ -62,3 +62,20 @@ if __name__=='__main__':
     spo_file = SpoAPI().access_graph()
     context = {'spo_file': spo_file}
     print(json.dumps(context, indent=2, ensure_ascii=False))
+
+"""
+実行結果
+
+{
+  "spo_file": [
+    {
+      "name": "Share PointとmFINDアプリケーションの接続に関して.pptx",
+      "iframe_url": "https://4msvlx.sharepoint.com/sites/resttest/_layouts/15/Doc.aspx?sourcedoc={ddb036b4-9c48-4751-86d4-a072cccacfdb}&amp;action=embedview"
+    },
+    {
+      "name": "社内教育受講報告書(0821-0920)_社員番号_名前.doc",
+      "iframe_url": "https://4msvlx.sharepoint.com/sites/resttest/_layouts/15/Doc.aspx?sourcedoc={8bc92639-e8ab-49c8-86f6-e8cf2b9408d1}&amp;action=embedview"
+    }
+  ]
+}
+"""
