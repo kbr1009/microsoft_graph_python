@@ -2,7 +2,7 @@
 Microsoft Graph API SharePoint Doc
 https://docs.microsoft.com/ja-jp/graph/api/resources/sharepoint?view=graph-rest-1.0
 """
-import requests, json
+import requests, json, re
 
 
 class SpoAPI:
@@ -43,16 +43,19 @@ class SpoAPI:
             'Authorization': 'Bearer %s' % token
         }
         res = requests.get(url, headers=headers)
-
         payload = []
+
         for i in res.json()['value']:
+            item_id = "{" + re.findall("(?<=\=).+?(?=\&)", i['@microsoft.graph.downloadUrl'])[0] + "}"
             payload.append(
-            {
-                'neme': i['name'],
-                'url': i['webUrl']
-            }
+                    {
+                        'name': i['name'],
+                        'iframe_url': "https://4msvlx.sharepoint.com/sites/resttest/_layouts/15/Doc.aspx?sourcedoc="+ item_id +"&amp;action=embedview"
+                    }
             )
+
         return payload
+
 
 
 if __name__=='__main__':
