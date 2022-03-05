@@ -14,7 +14,7 @@ class SpoAPI:
         self.__secret = "XXXX"
         self.__site_id = "XXXXX"
 
-    #apiのアクセストークンを取得する関数(private)
+    #apiのアクセストークンを取得するメソッド　(private)
     def __get_token(self):
         auth_url = "https://login.microsoftonline.com/"+ self.__tenant_id +"/oauth2/v2.0/token"
         headers = {
@@ -30,7 +30,7 @@ class SpoAPI:
         res = requests.post(auth_url, headers=headers, data=payload)
         return res.json()['access_token']
 
-    #ファイルを取得する関数
+    #ファイルを取得するメソッド　
     def access_graph(self):
         url = "https://graph.microsoft.com/v1.0/sites/"+ self.__site_id +"/drive/items/root/children"
         token = self.__get_token()
